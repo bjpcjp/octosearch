@@ -1,0 +1,22 @@
+<h2>Octopart Search Results:</h2>
+
+<h3># of Records Found: <%= @results.size %></h3>
+
+<% if @results && @results.size > 0 %>
+	<table>
+
+		<tr><th>MPN:</th>
+				<th>Detail Page:</th></tr>
+
+		<% @results.each do |result| 
+				mpn = result["item"]["mpn"]
+				details_url = result["item"]["detail_url"]
+				offers = result["item"]["offers"]
+			%>
+			<tr>
+				<td><%= mpn %></td>
+				<td><%= link_to details_url, details_url %></td>
+			</tr>
+		<% end %>
+	</table>
+<% end %>

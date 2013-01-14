@@ -1,0 +1,13 @@
+#Records: <%= @data.size %><br/>
+
+<% if @data.size > 0 %>
+			<table>
+			<% @data.each do |record| %>
+				<tr><td>
+					<% record["item"].each do |n| %>
+					<%= n %>
+					</td></tr>
+					<% end %>
+			<% end %>
+			</table>
+<% end %>

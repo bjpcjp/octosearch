@@ -1,0 +1,26 @@
+<h1>Octopart Part Number Search Queries:</h1>
+
+<table>
+  <tr>
+    <th><%= link_to "Name:", apis_path %></th>
+    <th><%= link_to "Query String:", apis_path %></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @apis.each do |api| %>
+  <tr>
+    <td><%= api.name %></td>
+    <td><%= api.query %></td>
+    <td><%= link_to "Octopart Search", octosearch_api_path(api) %></td>
+    <!--
+    <td><%= link_to 'Show', api %></td> -->
+    <td><%= link_to 'Edit', edit_api_path(api) %></td>
+    <td><%= link_to 'Destroy', api, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Api', new_api_path %>

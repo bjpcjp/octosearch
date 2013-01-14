@@ -1,0 +1,29 @@
+part object:
+	- uid
+	- mpn
+	- manufacturer{}
+	- detail_url
+	- avg_price?
+	- avg_avail?
+	- market_status
+	- num_suppliers
+	- num_authsuppliers
+	- short_description
+	- category_ids[]
+	- images[]{}
+	- datasheets[]{}
+	- descriptions[]{}
+	- hyperlinks[]{}
+	- offers[]{}
+			- sku
+			- supplier{}
+			- avail
+			- prices[]
+			- is_authorized
+			- clickthrough_url
+			- buynow_url/
+			- sendrfq_url?
+	- specs[]{}
+			- attribute{}
+			- values[]
+			
