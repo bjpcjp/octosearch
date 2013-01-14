@@ -68,6 +68,7 @@ GEM
       hashie
       json
       rest-client
+    pg (0.12.2)
     polyglot (0.3.3)
     rack (1.4.3)
     rack-cache (1.2)
@@ -131,6 +132,7 @@ DEPENDENCIES
   kaminari
   less-rails
   octopart
+  pg (= 0.12.2)
   rails (= 3.2.8)
   sass-rails (~> 3.2.3)
   sqlite3

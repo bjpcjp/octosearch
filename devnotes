@@ -27,3 +27,6 @@ part object:
 			- attribute{}
 			- values[]
 			
+= 1/14/2013: ===================================================================
+heroku rename octosearch
+bundle install --without production
