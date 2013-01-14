@@ -16,6 +16,7 @@ class ApisController < ApplicationController
   # GET /apis.json
   def index
     @apis = Api.all(:order => "query")
+    #@apis = Api.order("query").page(params[:page]).per(20)
 
     respond_to do |format|
       format.html # index.html.erb
