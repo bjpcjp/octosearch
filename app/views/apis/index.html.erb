@@ -1,26 +1,38 @@
-<h2>Octopart Part Number Search Queries:</h2>
-
-<table>
-  <tr>
-    <th><%= link_to "Name:", apis_path %></th>
-    <th><%= link_to "Query String:", apis_path %></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @apis.each do |api| %>
-  <tr>
-    <td><%= api.name %></td>
-    <td><%= api.query %></td>
-    <td><%= link_to "Octopart Search", octosearch_api_path(api) %></td>
-    <!--
-    <td><%= link_to 'Show', api %></td> -->
-    <td><%= link_to 'Edit', edit_api_path(api) %></td>
-    <td><%= link_to 'Destroy', api, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
+<%- model_class = Api -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:query) %></th>
+      <th>Octopart Link:</th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @apis.each do |api| %>
+      <tr>
+        <td><%= link_to api.id, api_path(api) %></td>
+        <td><%= api.name %></td>
+        <td><%= api.query %></td>
+        <td><%= link_to "Octopart Search", octosearch_api_path(api) %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_api_path(api), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      api_path(api),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
-<br />
-
-<%= link_to 'New Api', new_api_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_api_path,
+            :class => 'btn btn-primary' %>

@@ -2,13 +2,30 @@
 <html>
 <head>
   <title>OctopartTest</title>
+
+  <!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+	-->
+
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 <%= render :partial => 'shared/topmenu' %><br/>
-<%= yield %>
+<div class="container">
+	<div class="row">
+		<div class="span9">
+			<%= yield %>
+		</div>
+		<div class="span3">
+			<p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut quis dui magna, eget facilisis quam. Quisque in erat ac turpis aliquam suscipit. Fusce rutrum varius justo, ut malesuada tellus laoreet sed. Donec venenatis, metus ac facilisis faucibus, arcu dolor sodales nisi, quis mollis est sapien at tortor. Integer ut nisl dignissim erat auctor ullamcorper ut at diam. Donec quam est, euismod vel auctor ut, varius nec dolor.
+			</p>
+		</div>
+	</div>
+</div>
 
 </body>
 </html>
